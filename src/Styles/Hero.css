@@ -1,0 +1,306 @@
+/* ==============================
+   Layout
+============================== */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 20px;
+  height: 100vh;
+  gap: 2rem;
+  flex-wrap: wrap;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-content {
+  flex: 1 1 50%;
+  text-align: start;
+  margin-left: 5%;
+  position: relative;
+}
+
+.hero-model {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 600px;
+  min-width: 280px;
+}
+
+.hero-model model-viewer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* ==============================
+   Text
+============================== */
+.hero-content h1 {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  color: #00ff41;
+  letter-spacing: 5px;
+}
+
+.hero-content p {
+  font-size: 2.5rem;
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+/* ==============================
+   Glitch Effect
+============================== */
+h1.glitch {
+  position: relative;
+  font-weight: 700;
+  display: inline-block;
+  width: fit-content;
+  animation: shift 1s ease-in-out infinite alternate;
+}
+
+h1.glitch::before,
+h1.glitch::after {
+  content: attr(data-glitch);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+h1.glitch:before {
+  animation: glitch 0.4s both infinite;
+  color: #8b00ff;
+}
+
+h1.glitch:after {
+  animation: glitch 0.4s reverse both infinite;
+  color: #00e571;
+}
+
+@keyframes glitch {
+  20% {
+    transform: translate(-3px, 3px);
+  }
+  40% {
+    transform: translate(-3px, -3px);
+  }
+  60% {
+    transform: translate(3px, 3px);
+  }
+  80% {
+    transform: translate(3px, -3px);
+  }
+}
+
+@keyframes shift {
+  41% {
+    transform: skewX(3deg);
+  }
+  42% {
+    transform: skewX(-3deg);
+  }
+  59% {
+    transform: skewX(8deg) skewY(3deg);
+  }
+  60% {
+    transform: skewX(-8deg) skewY(-3deg);
+  }
+  70% {
+    transform: skewX(-12deg) skewY(-5deg);
+  }
+  71% {
+    transform: skewX(3deg) skewY(-2deg);
+  }
+}
+
+/* ==============================
+   Edition Buttons
+============================== */
+.edition-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.edition-buttons button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+.edition-buttons button:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 255, 255, 0.25);
+}
+
+.edition-buttons button.active {
+  border: 3px solid #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 25px currentColor, 0 0 50px currentColor;
+}
+
+/* ==============================
+   Spinner
+============================== */
+.spinner-container {
+  width: 120px;
+  height: 120px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.spinner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 5px solid transparent;
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 5s cubic-bezier(0.17, 0.49, 0.96, 0.79) infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==============================
+   Responsive
+============================== */
+
+/* ==============================
+   Laptop (1480px–1025px)
+   ============================== */
+@media (max-width: 1480px) and (min-width: 1025px) {
+  .hero-section {
+    padding: 3rem 40px;
+    height: auto; /* don’t force full viewport height */
+  }
+
+  .hero-content {
+    margin-left: 2%; /* less margin so it feels less zoomed */
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem; /* down from 5rem */
+    letter-spacing: 3px;
+  }
+
+  .hero-content p {
+    font-size: 1.6rem; /* down from 2.5rem */
+  }
+
+  .hero-model {
+    height: 450px; /* shrink model height */
+  }
+
+  .hero-model model-viewer {
+    height: 100%;
+  }
+}
+
+/* ==============================
+   Tablet & Small Laptop (1024px–481px)
+============================== */
+@media (max-width: 1024px) and (min-width: 481px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    height: auto;
+  }
+
+  .hero-content {
+    text-align: center;
+    margin: 0;
+  }
+
+  .edition-buttons {
+    justify-content: center;
+  }
+
+  .hero-model {
+    order: 2; /* move under buttons */
+    width: 350px;
+    height: auto;
+    margin-top: 2rem;
+    position: relative;
+
+    display: flex; /* ✅ centers the model */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-model model-viewer {
+    position: relative;
+    width: 100%;
+    height: 350px;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    height: auto;
+  }
+
+  .hero-content {
+    text-align: center;
+    margin: 0;
+  }
+
+  .edition-buttons {
+    justify-content: center;
+  }
+
+  .hero-model {
+    order: 2; /* move under buttons */
+    width: 250px;
+    height: auto;
+    margin-top: 1.5rem;
+    position: relative;
+
+    display: flex; /* ✅ centers the model */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-model model-viewer {
+    position: relative;
+    width: 100%;
+    height: 250px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}

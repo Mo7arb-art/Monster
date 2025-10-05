@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "EnterTheGrid2";
+  src: url("./Assets/EnterTheGrid2.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.App {
+  background-color: black;
+  font-family: "EnterTheGrid2", sans-serif;
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: "EnterTheGrid2";
+  background: none;
+}
+
+button {
+  font-family: "EnterTheGrid2", sans-serif;
+}
+
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+  max-width: 600px;
+}
