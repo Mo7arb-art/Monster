@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Monster/static/css/main.86cec0fb.css",
-    "main.js": "/Monster/static/js/main.11c39f5b.js",
+    "main.js": "/Monster/static/js/main.60b7fd4e.js",
     "static/media/Figma2x.webp": "/Monster/static/media/Figma2x.827e373c3c95bba7471c.webp",
     "static/media/MonsterLogo.png": "/Monster/static/media/MonsterLogo.07a30de7c4614945a59e.png",
     "static/media/EnterTheGrid2.woff2": "/Monster/static/media/EnterTheGrid2.dd12b6f82ebb0b5db2bd.woff2",
     "index.html": "/Monster/index.html",
     "main.86cec0fb.css.map": "/Monster/static/css/main.86cec0fb.css.map",
-    "main.11c39f5b.js.map": "/Monster/static/js/main.11c39f5b.js.map"
+    "main.60b7fd4e.js.map": "/Monster/static/js/main.60b7fd4e.js.map"
   },
   "entrypoints": [
     "static/css/main.86cec0fb.css",
-    "static/js/main.11c39f5b.js"
+    "static/js/main.60b7fd4e.js"
   ]
 }
